@@ -1,0 +1,58 @@
+{% extends 'library_app/library_base.html' %}
+
+
+{% block  body_block %}
+
+    
+<div class="container">
+
+    
+
+    <div class="alert alert-primary" role="alert">
+        <table class="table">
+            <tr>
+                <td><h4><strong>Welcome to the  the Students list page</strong></h4>  </td>
+               
+            </tr>
+        </table>
+    </div>
+            
+      
+    <hr>
+
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"> 
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <br>
+      <br>
+
+<div >
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>View Detail</th>
+        </tr>
+       
+            {% for student in students  %}
+             <tr>
+                <td>
+                    <a href="{{student.id}}">
+                    <li>{{student.name}}</li> 
+                    </a>                    
+                </td>
+                <td>{{student.date_of_birth}}</td>
+                <td><a class="btn btn-primary" href = "{{student.id}}">show details</a></td>
+        </tr>
+            {% endfor %}            
+
+    </table>
+
+</div>
+
+
+</div>
+{% endblock  %}

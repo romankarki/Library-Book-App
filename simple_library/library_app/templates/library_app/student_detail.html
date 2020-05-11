@@ -1,0 +1,44 @@
+{% extends 'library_app/library_base.html' %}
+
+{% load static %}
+{% block body_block %}
+<div class="alert alert-secondary">
+<div class="container">
+    <h2 class="alert alert-primary"><strong>Student details</strong> </h2>
+    <hr>
+    <table class="table">
+        <tr>
+            <td>
+                <p> <img src={{student_detail.photo.url}} width="300" height="350"></p>
+            </td>
+            <td>
+                    <p><strong>Name: </strong>{{student_detail.name}}</p>
+                    <p><strong>Date of Birth: </strong> {{student_detail.date_of_birth}}</p>
+                    <hr>
+                    <p>
+                        <table class="table">
+
+                            <tr>
+                                <td>
+                                      <p><a class="btn btn-primary" href="{% url 'library_app:student_create' pk=student_detail.pk %}">Issue a book</a></p>
+                                      <p><a class="btn btn-danger" href="{% url 'library_app:bookuser_list' pk=student_detail.pk%}">list of books taken</a></p>
+                                    
+                                </td>
+                                   
+                            </tr>
+                            </table>
+                    </p>
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+</div>
+</div>
+<hr>
+
+
+        
+{% endblock body_block %}
+    

@@ -1,0 +1,65 @@
+{% extends 'library_app/library_base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+
+
+<div class="jumbotron">
+
+    <div class="alert alert-primary" role="alert">
+        <table class="table">
+            <tr>
+                <td>    <h2>List of all the Books Issued  by 
+                    {% with bookusers.0  as bu%}
+                        {{ bu.student}}
+                    {% endwith %}.
+                </h2> </td>
+               
+            </tr>
+        </table>
+            
+      </div> 
+
+
+
+    
+    <br>
+    <br>
+    <table class="table">
+        <tr>
+            <th>Book Name</th>
+            <th>Student Name</th>
+            <th>Issued Date</th>
+            <th>Action</th> 
+        </tr>
+    
+    {% for bookuser in bookusers %}
+    
+        <tr>
+            <td><strong><a href="">{{bookuser}}</a></strong></td>
+            <td><strong>{{bookuser.student}}</strong></td>
+            <td><strong>{{bookuser.date_of_issue}}</strong></td>
+            <td > <a class="btn btn-danger"  href="{% url 'library_app:delete' pk=bookuser.pk  %}">remove</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% with bookusers.0  as b%}
+
+    <div class="container">
+        <p><a class="btn btn-warning" href="{% url 'library_app:student_create' pk=b.student.pk%}">Issue a book</a></p>
+    </div>
+
+{%endwith%}
+    
+    
+    </div>
+    
+    
+
+    
+
+    
+{% endblock body_block %}
+    

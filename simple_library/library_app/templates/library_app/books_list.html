@@ -1,0 +1,59 @@
+
+{% extends 'library_app/library_base.html' %}
+
+
+{% block  body_block %}
+    
+<div class="container">
+    
+        <div class="alert alert-primary" role="alert">
+            <table class="table">
+                <tr>
+                    <td><h4><strong>Welcome to the  the book list page!</strong></h4>  </td>
+                   
+                </tr>
+            </table>
+                
+          </div> 
+
+
+    
+    <br>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"> 
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <br>
+      <br>
+
+    <table class="table">
+        <tr>
+            <th><strong>Title</strong></th>
+            <th><strong>Author</strong></th>
+        </tr>
+    
+        
+        {% for book in books  %}
+    
+        <tr>
+            <td><li>{{book.title}}</li></td>
+            <td>{{book.author}}</td>
+        
+        </tr>    
+     
+        {% endfor %}            
+    
+
+        
+    
+        
+
+            
+    
+</table>
+</div>
+
+
+
+{% endblock  %}
